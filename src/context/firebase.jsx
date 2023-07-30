@@ -329,17 +329,17 @@ export const FirebaseProvider = (props) => {
         if (window.confirm("Are you sure you want to delete it?")) {
             const docref = doc(db, "Patients", PatientID)
             await deleteDoc(docref);
-        }
-        toast.success('Device Successfully Deleted', {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
+            return toast.success('Device Successfully Deleted', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
         });
+    }
     }
 
     const update = async (patientID) => {

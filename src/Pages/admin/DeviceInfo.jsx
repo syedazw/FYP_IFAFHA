@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { usefirebase } from "../../context/firebase";
 import { useParams } from "react-router-dom";
-
+import AdminSubHeader from "../../Components/adminHeader";
 
 
 
 export default function DeviceInfo() {
     const firebase = usefirebase();
     const params = useParams();
-
-
-
 
     const [patdata, setpatdata] = useState([]);
     useEffect(() => {
@@ -46,9 +43,10 @@ export default function DeviceInfo() {
    
 
     return (
-
         <>
             <div className="container-fluid">
+
+            <AdminSubHeader/>
                 <div className="row">
                     <h4 className="fw-bold text-center pt-5">VIEW DEVICE INFORMATION</h4>
                 </div>
@@ -76,19 +74,14 @@ export default function DeviceInfo() {
                                             <td className="text-wrap w-75" scope="row">{item.data.method}</td>
                                             <td className="text-wrap" scope="row">'{item.data.deviceToken}'</td>
                                             <td><button className="btn btn-primary btn-width text-light" onClick={() => handleUpdate(item.id)}>Edit Token</button>
-                                                <button className="btn btn-danger btn-width mt-2" onClick={() => handleDelete(item.id)}>Delete Kit</button>
-                                               
+                                                <button className="btn btn-danger btn-width mt-2" onClick={() => handleDelete(item.id)}>Delete Kit</button>                      
                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
                         </div>
-
-
-
                     </div>
-
                 </div>
             </div>
         </>
